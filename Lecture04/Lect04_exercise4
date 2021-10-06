@@ -1,0 +1,7 @@
+cut -f7 example_people_data.tsv | sort | uniq -c | sort -k1,1nr | head -n5
+
+grep "Mozambique" example_people_data.tsv | awk '{
+FS="\t" ;
+if($6 <= 1971 && NF == 7)
+{print $0;}
+}' | wc -l
